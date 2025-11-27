@@ -1,3 +1,6 @@
+using Gestionnaire_MDP.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace Gestionnaire_MDP;
 
 public class Program
@@ -5,7 +8,12 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-
+        
+        // Récupération de la chaîne de connexion
+        string? connect = builder.Configuration.GetConnectionString("DefaultConnection");
+        
+        builder.Services.AddDbContext<ContexteMdp>(opt => opt.UseSqlServer(connect));
+        
         // Add services to the container.
         builder.Services.AddAuthorization();
 

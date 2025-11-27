@@ -17,7 +17,7 @@ public class Vault
     public int Argon2HashLength { get; set; }
     public int Argon2Version { get; set; }
     
-    public DateTime CreatedAtUtc { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAtUtc { get; set; }
     public DateTime? UpdatedAtUtc { get; set; }
     public DateTime? DeletedAtUtc { get; set; }
     
